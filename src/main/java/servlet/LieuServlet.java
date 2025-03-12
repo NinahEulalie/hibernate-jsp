@@ -20,11 +20,22 @@ public class LieuServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
     private LieuDAO lieuDAO;
     
+    
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    	doGet(request, response);
+    }
+    
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String action = request.getParameter("action");
 
         if (action != null) {
             switch (action) {
+	            case "/addLieu":
+	            	addLieu(request, response);
+	                break;
+	            case "/updateLieu":
+	            	updateLieu(request, response);
+	                break;
                 case "/deleteLieu":
                 	deleteLieu(request, response);
                     break;
@@ -38,23 +49,7 @@ public class LieuServlet extends HttpServlet {
         } 
     }
 
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-    	String action = request.getParameter("action");
-
-        if (action != null) {
-            switch (action) {
-                case "/addLieu":
-                	addLieu(request, response);
-                    break;
-                case "/updateLieu":
-                	updateLieu(request, response);
-                    break;
-            }
-        } 
-
-    }
-
-
+    
     // 🔹 Afficher la liste des lieux
     private void listAllLieux(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         List<LieuModel> lieux = lieuDAO.getAllLieux();

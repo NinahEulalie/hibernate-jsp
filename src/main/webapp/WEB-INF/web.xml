@@ -21,11 +21,12 @@
 
   <servlet-mapping>
     <servlet-name>EmployeServlet</servlet-name>
-    <url-pattern>/listEmployes</url-pattern>
+    <url-pattern>/newFormEmploye</url-pattern>
     <url-pattern>/addEmploye</url-pattern>
     <url-pattern>/updateEmploye</url-pattern>
-    <url-pattern>/showFormEmploye</url-pattern>
     <url-pattern>/deleteEmploye</url-pattern>
+    <url-pattern>/editFormEmploye</url-pattern>
+    <url-pattern>/listEmployes</url-pattern>
 </servlet-mapping>
 <servlet-mapping>
     <servlet-name>LieuServlet</servlet-name>

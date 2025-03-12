@@ -101,7 +101,7 @@
                     <input type="text" name="keyword" class="form-control mr-2" placeholder="Rechercher un membre">
                     <button type="submit" class="btn btn-primary">Rechercher</button>
                 </form>
-				<a href="<%=request.getContextPath()%>/addEmploye" class="btn btn-success">Ajouter un employé</a>
+				<a href="<%=request.getContextPath()%>/newFormEmploye" class="btn btn-success">Ajouter un employé</a>
 			<br><br>
 			<table class="table table-bordered">
 				<thead>
@@ -121,7 +121,7 @@
 			            <td><%= e.getPrenom() %></td>
 			            <td><%= e.getPoste() %></td>
             			<td>
-			                <a href="<%= request.getContextPath() %>/updateEmploye&codeemp=<%= e.getCodeemp() %>">Modifier</a> |
+			                <a href="<%= request.getContextPath() %>/editFormEmploye&codeemp=<%= e.getCodeemp() %>">Modifier</a> |
 							<a href="<%= request.getContextPath() %>/deleteEmploye&codeemp=<%= e.getCodeemp() %>" 
 							onclick="return confirm('Supprimer cet employé ?')">Supprimer</a>
             			</td>		

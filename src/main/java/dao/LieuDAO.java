@@ -52,12 +52,14 @@ public class LieuDAO {
             } else {
                 System.out.println("✅ Lieux trouvés : " + lieux.size());
             }
-        } catch (Exception e) {
+        } 
+        catch (Exception e) {
             if (transaction != null) {
                 transaction.rollback();
             }
             e.printStackTrace();
-        } finally {
+        } 
+        finally {
             if (session != null) {
                 session.close();  // ✅ Fermer la session ici
             }

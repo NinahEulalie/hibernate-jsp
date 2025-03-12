@@ -115,8 +115,8 @@
 			            <td><%= lieu.getDesignation() %></td>
 			            <td><%= lieu.getProvince() %></td>
             			<td>
-			                <a href="<%= request.getContextPath() %>/updateLieu&codelieu=<%= e.getCodelieu() %>">Modifier</a> |
-							<a href="<%= request.getContextPath() %>/deleteLieu&codelieu=<%= e.getCodelieu() %>" 
+			                <a href="<%= request.getContextPath() %>/updateLieu&codelieu=<%= lieu.getCodelieu() %>">Modifier</a> |
+							<a href="<%= request.getContextPath() %>/deleteLieu&codelieu=<%= lieu.getCodelieu() %>" 
 							onclick="return confirm('Supprimer ce lieu ?')">Supprimer</a>
             			</td>		
 					</tr>

@@ -9,9 +9,12 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.RequestDispatcher;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+
+//import javax.servlet.RequestDispatcher;
 
 @SuppressWarnings("unused")
 @WebServlet("/EmployeServlet")
@@ -19,18 +22,33 @@ public class EmployeServlet extends HttpServlet {
 	
     private static final long serialVersionUID = 1L;
     private EmployeDAO employeDAO = new EmployeDAO();
+    
+    
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    	doGet(request, response);
+    }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String action = request.getParameter("action");
 
         if (action == null) {
         	listAllEmployes(request, response);
-        } else {
+        } 
+        else {
             switch (action) {
+	        	case "/newFormEmploye":
+	        		showNewForm(request, response);
+	            break;
+                case "/addEmploye":
+                    addEmploye(request, response);
+                    break;
+                case "/updateEmploye":
+                    updateEmploye(request, response);
+                    break;
                 case "/deleteEmploye":
                     deleteEmploye(request, response);
                     break;
-                case "/showFormEmploye":
+                case "/editFormEmploye":
                     showEditForm(request, response);
                     break;
                 default:
@@ -40,21 +58,7 @@ public class EmployeServlet extends HttpServlet {
         }
     }
 
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        String action = request.getParameter("action");
-
-        if (action != null) {
-            switch (action) {
-                case "/addEmploye":
-                    addEmploye(request, response);
-                    break;
-                case "/updateEmploye":
-                    updateEmploye(request, response);
-                    break;
-            }
-        }
-    }
-
+    
     // 🔹 Afficher la liste des employés
     private void listAllEmployes(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         List<EmployeModel> employes = employeDAO.getAllEmployes();
@@ -63,7 +67,8 @@ public class EmployeServlet extends HttpServlet {
         if (employes == null) {
             System.out.println("⚠ ERREUR: La liste des employés est NULL !");
             employes = new ArrayList<>(); // Évite NullPointerException
-        } else {
+        } 
+        else {
             System.out.println("✅ Nombre d'employés récupérés : " + employes.size());
             for (EmployeModel emp : employes) {
                 System.out.println(" - " + emp.getCodeemp() + " | " + emp.getNom() + " | " + emp.getPrenom() + " | " + emp.getPoste());
@@ -85,7 +90,14 @@ public class EmployeServlet extends HttpServlet {
 
         response.sendRedirect("listEmployes");
     }
-
+    
+    // 🔹 Afficher le formulaire d'ajout
+    private void showNewForm(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        RequestDispatcher dispatcher = request.getRequestDispatcher("employe-form.jsp");
+        dispatcher.forward(request, response);
+    }
+    
     // 🔹 Afficher le formulaire de modification
     private void showEditForm(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         Long codeemp = Long.parseLong(request.getParameter("codeemp"));
