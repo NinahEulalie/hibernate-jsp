@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER">
+		<attributes>
+			<attribute name="module" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="src" path="src/main/java"/>
+	<classpathentry kind="src" path="src/main/resources"/>
+	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.web.container"/>
+	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.module.container"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/lib"/>
+	<classpathentry kind="con" path="org.eclipse.jst.server.core.container/org.eclipse.jst.server.tomcat.runtimeTarget/Apache Tomcat v10.1"/>
+	<classpathentry kind="lib" path="C:/Users/Nantenaina Eulalie/Downloads/Programs/jakarta.servlet-api_6.0.0.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Nantenaina Eulalie/Downloads/Programs/javax.servlet-api-3.1.0.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Nantenaina Eulalie/Downloads/activation-1.1.1.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Nantenaina Eulalie/Downloads/smtp-1.6.2.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Nantenaina Eulalie/Downloads/itext-asian-5.2.0.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Nantenaina Eulalie/Downloads/servlet-api-2.5-6.0.2.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Nantenaina Eulalie/Downloads/jsp-api-2.1-6.0.2.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Nantenaina Eulalie/Downloads/Programs/jakarta.servlet.jsp.jstl-api-3.0.0.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Nantenaina Eulalie/Downloads/Programs/jakarta.servlet.jsp.jstl-2.0.0.jar"/>
+	<classpathentry kind="output" path="build/classes"/>
+</classpath>
