@@ -6,8 +6,7 @@ import dao.LieuDAO;
 import model.AffecterModel;
 import model.EmployeModel;
 import model.LieuModel;
-
-
+import jakarta.servlet.RequestDispatcher;
 //import jakarta.servlet.*;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
@@ -46,7 +45,9 @@ public class AffecterServlet extends HttpServlet {
                 case "/deleteAffectation":
                 	deleteAffectation(request, response);
                     break;
-                case "/showFormAffecter":
+                case "/newFormAffecter":
+                    showNewForm(request, response);
+                case "/editFormAffecter":
                     showEditForm(request, response);
                     break;
                 case "/updateAffectation":
@@ -103,6 +104,13 @@ public class AffecterServlet extends HttpServlet {
             affecterDAO.saveAffectation(affectation);
             
             response.sendRedirect("listAffectations");
+        }
+        
+        // 🔹 Afficher le formulaire d'ajout
+        private void showNewForm(HttpServletRequest request, HttpServletResponse response)
+                throws ServletException, IOException {
+            RequestDispatcher dispatcher = request.getRequestDispatcher("affecter-form.jsp");
+            dispatcher.forward(request, response);
         }
 
         // 🔹 Afficher le formulaire de modification

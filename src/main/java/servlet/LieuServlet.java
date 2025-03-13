@@ -2,7 +2,7 @@ package servlet;
 
 import dao.LieuDAO;
 import model.LieuModel;
-
+import jakarta.servlet.RequestDispatcher;
 //import jakarta.servlet.*;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
@@ -39,7 +39,10 @@ public class LieuServlet extends HttpServlet {
                 case "/deleteLieu":
                 	deleteLieu(request, response);
                     break;
-                case "/showFormLieu":
+                case "/newFormLieu":
+                	showNewForm(request, response);
+                    break;
+                case "/editFormLieu":
                     showEditForm(request, response);
                     break;
                 default:
@@ -80,6 +83,13 @@ public class LieuServlet extends HttpServlet {
             lieuDAO.saveLieu(lieu);
 
             response.sendRedirect("listLieux");
+        }
+        
+        // 🔹 Afficher le formulaire d'ajout
+        private void showNewForm(HttpServletRequest request, HttpServletResponse response)
+                throws ServletException, IOException {
+            RequestDispatcher dispatcher = request.getRequestDispatcher("lieu-form.jsp");
+            dispatcher.forward(request, response);
         }
 
         // 🔹 Afficher le formulaire de modification

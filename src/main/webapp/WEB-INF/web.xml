@@ -30,19 +30,21 @@
 </servlet-mapping>
 <servlet-mapping>
     <servlet-name>LieuServlet</servlet-name>
-    <url-pattern>/listLieux</url-pattern>
     <url-pattern>/addLieu</url-pattern>
-    <url-pattern>/deleteLieu</url-pattern>
-    <url-pattern>/showFormLieu</url-pattern>
     <url-pattern>/updateLieu</url-pattern>
+    <url-pattern>/deleteLieu</url-pattern>
+    <url-pattern>/newFormLieu</url-pattern>
+    <url-pattern>/editFormLieu</url-pattern>
+    <url-pattern>/listLieux</url-pattern>
 </servlet-mapping>
 <servlet-mapping>
     <servlet-name>AffecterServlet</servlet-name>
-    <url-pattern>/listAffectations</url-pattern>
     <url-pattern>/addAffectation</url-pattern>
-    <url-pattern>/updateAffectation</url-pattern>
-    <url-pattern>/showFormAffecter</url-pattern>
     <url-pattern>/deleteAffectation</url-pattern>
+    <url-pattern>/newFormAffecter</url-pattern>
+    <url-pattern>/editFormAffecter</url-pattern>
+    <url-pattern>/updateAffectation</url-pattern>
+    <url-pattern>/listAffectations</url-pattern>
 </servlet-mapping>
 
     <welcome-file-list>
